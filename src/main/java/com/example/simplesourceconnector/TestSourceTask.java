@@ -38,7 +38,7 @@ public class TestSourceTask extends SourceTask {
 
     /**
      * 태스크가 종료될 때 필요한 로직을 작성한다.
-     * ex) JDBC 소스 커넥터를 구현했다면 이 메서드에서 JDBC ㅓㅋ넥션을 종료하는 로직을 추가하면 된다.
+     * ex) JDBC 소스 커넥터를 구현했다면 이 메서드에서 JDBC 커넥션을 종료하는 로직을 추가하면 된다.
      */
     @Override
     public void stop() {

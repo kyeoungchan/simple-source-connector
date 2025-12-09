@@ -20,10 +20,24 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-kafka'
+    implementation 'org.apache.kafka:connect-api:4.1.1'
     testImplementation 'org.springframework.boot:spring-boot-starter-kafka-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+jar {
+    // 빌드된 파일을 jar로 압축하기 위한 스크립트
+    // 만약 개발 시에 참조했던 디펜던시를 같이 빌드하지 못하고 커넥트의 플러그인으로 추가하면 커넥터 실행 시 참조하는 클래스를 찾지 못하고 ClassNotFoundException이 발생할 수 있다.
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
 }
