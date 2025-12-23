@@ -65,7 +65,7 @@ public class SingleFileSourceTask extends SourceTask {
 
             /* Get file offset from offsetStorageReader
              * 오프셋 스토리지에서 현재 읽고자 하는 파일 정보를 가져온다.
-             * 오프셋 스토리진느 실제로 데이터가 저장되는 곳으로,
+             * 오프셋 스토리지는 실제로 데이터가 저장되는 곳으로,
              * - 단일 모드 커넥트: 로컬 파일로 저장
              * - 분산 모드 커넥트: 내부 토픽에 저장
              * 만약 오프셋 스토리지에서 데이터를 읽었을 때 null이 반환된다면 읽고자 하는 데이터가 없다는 뜻이다. */
